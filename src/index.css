@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-display: swap; 
+  font-family: 'ABeeZee';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/abeezee-v22-latin-regular.woff2') format('woff2'); 
+}
+body{
+  font-family: "ABeeZee", sans-serif;
+}
+
+.containers{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
