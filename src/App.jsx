@@ -1,14 +1,30 @@
+import {useEffect, useState} from "react"
 
-import {Form, List} from "./modules"
+import FormTodo from "./modules/List/formtodo"
+import ListTodo from "./modules/List/todolist"
 
-function App() {
+const App = () => {
+  const [todos, setTodos] = useState([])
 
+  useEffect(() => {
+    const savedTodos = JSON.parse(localStorage.getItem("todos"));
+    if (savedTodos) {
+      setTodos(savedTodos);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+      
   return (
-    <>
-      <Form/>
-      <List/>
-    </>
+
+   <>
+   <FormTodo todos={todos} setTodos={setTodos}/>
+   <ListTodo todos={todos} setTodos={setTodos}/>
+   </>
   )
-}
+
+  }
 
 export default App
